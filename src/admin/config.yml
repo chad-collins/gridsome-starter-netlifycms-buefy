@@ -1,0 +1,29 @@
+backend:
+  name: github
+  repo: chad-collins/Netlify-Jamstack-Gridsome
+
+media_folder: "static/uploads"
+public_folder: "uploads"
+
+collections:
+  - name: "blogposts"
+    label: "Blog Posts"
+    folder: "content/blogposts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Excerpt", name: "excerpt", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "date"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "eventposts"
+    label: "Event Posts"
+    folder: "content/eventposts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Date", name: "date", widget: "date"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Featured Image", name: "featuredImage", widget: "image"}
