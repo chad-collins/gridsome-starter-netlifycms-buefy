@@ -20,9 +20,11 @@
               <div class="card-content">
                 <div class="media">
                   <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img :src="`../../${edge.node.author.image}`" alt="Placeholder image" />
-                    </figure>
+                    <g-link :to="edge.node.author.path">
+                      <figure class="image is-48x48">
+                        <img :src="`../../${edge.node.author.image}`" alt="Placeholder image" />
+                      </figure>
+                    </g-link>
                   </div>
                   <div class="media-content">
                     <h2 class="title is-4">

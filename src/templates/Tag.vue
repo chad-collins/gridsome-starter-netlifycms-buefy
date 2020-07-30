@@ -1,44 +1,32 @@
 <template>
-  <Layout>
-    <article 
-        v-for="edge in $page.blogs.edges" 
-        :key="edge.node.id">
-        <h2>
-          <g-link :to="edge.node.path">
-            {{edge.node.title}}
-          </g-link>
-        </h2>
-        <small>
-          <g-link :to="edge.node.author.path">
-            {{edge.node.author.id}}
-          </g-link>
-        </small>
-        <div>
-            <span v-for="(tag, index) in edge.node.tags" 
-                :key="tag.id">
-                <g-link :to="tag.path">
-                  {{tag.id}}
-                </g-link>
-                <span v-if="index + 1 < edge.node.tags.length">
-                  ,  
-                </span>
-            </span>
-        </div>
-        <hr>
-    </article>
- </Layout>
+  <Layout :pageTitle="`Tagged as ${$route.params.title}`">
+    <section class="section">
+      <div class="container">
+        <ul v-for="post in $page.posts.edges" :key="post.node.id">
+          <li>
+            <PostItem :post="post" />
+          </li>
+          <hr />
+        </ul>
+      </div>
+    </section>
+  </Layout>
 </template>
 
 <page-query>
 query BlogsByTags($id: ID) {
-  blogs: allPost (filter: {tags: {contains: [$id]}}) {
+  posts: allPost (filter: {tags: {contains: [$id]}}) {
     edges {
       node {
         title
         path
+        excerpt
         author {
           id
+          title
+          image
           path
+          email
         }
         tags {
           id
@@ -49,3 +37,10 @@ query BlogsByTags($id: ID) {
   }
 }
 </page-query>
+
+<script>
+import PostItem from '../components/PostItem';
+export default {
+  components: { PostItem },
+};
+</script>

@@ -1,20 +1,15 @@
 <template>
-  <Layout>
+  <Layout :pageTitle="`Posts by ${$page.author.title}`">
     <section class="section">
       <div class="container">
         <div class="columns">
           <div class="column is-two-thirds">
-            <article
-              v-for="post in $page.author.belongsTo.edges"
-              :key="post.node.id"
-              class="content post"
-            >
-              <h2 class="title is-2">
-                {{ post.node.title }}
-              </h2>
-              <p class="subtitle">{{ post.node.date }}</p>
-              <p>{{ post.node.excerpt }}</p>
-            </article>
+            <ul v-for="post in $page.author.belongsTo.edges" :key="post.node.id">
+              <li>
+                <PostItem :post="post" />
+              </li>
+              <hr />
+            </ul>
           </div>
           <div class="column">
             <div class="box">
@@ -72,6 +67,12 @@
     }  
   }
 </page-query>
+<script>
+import PostItem from '../components/PostItem';
+export default {
+  components: { PostItem },
+};
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/overrides.scss';

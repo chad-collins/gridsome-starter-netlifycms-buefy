@@ -9,12 +9,6 @@
       </b-navbar-item>
     </template>
     <template slot="start">
-      <b-navbar-item to="/" tag="router-link">
-        Home
-      </b-navbar-item>
-      <b-navbar-item to="/posts" tag="router-link">
-        Posts
-      </b-navbar-item>
       <b-navbar-item to="/about" tag="router-link">
         About
       </b-navbar-item>
