@@ -27,7 +27,7 @@ module.exports = {
           }
         },
         remark: {
-          plugins: ['@gridsome/remark-prismjs', { transformInlineCode: true }],
+         
         },
       },
     },
@@ -40,6 +40,15 @@ module.exports = {
         publicPath: `/admin`,
       },
     },
+
+    // Sass Loader
+    // {
+    //   use: 'gridsome-plugin-sass-resources-loader',
+    //   options: {
+    //     // provide path to the file with resources
+    //     resources: 'src/assets/sass/_globals.scss',
+    //   }
+    // },
 
   ],
 

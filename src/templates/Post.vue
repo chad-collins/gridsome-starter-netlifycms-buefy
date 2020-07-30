@@ -10,7 +10,17 @@
     post: post(path: $path){
      id
      title
+     excerpt
+     featuredImage
      content
+     tags {
+       id
+     }
+     author {
+       id
+     }
+     
+
     }
   }
 </page-query>
