@@ -9,8 +9,11 @@
     "@gridsome/remark-prismjs": "^0.3.0",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.1",
+    "buefy": "^0.8.20",
     "gridsome": "^0.7.0",
     "gridsome-plugin-netlify-cms": "^1.0.9",
-    "netlify-cms": "^2.10.55"
+    "netlify-cms": "^2.10.55",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^9.0.2"
   }
 }
