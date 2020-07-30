@@ -18,6 +18,7 @@ collections:
           name: 'author',
           widget: 'collection',
           collection: 'authors',
+          options: [authors],
           searchFields: ['title', 'twitterHandle'],
           valueField: 'title',
           displayFields: ['twitterHandle', 'title'],
@@ -33,7 +34,7 @@ collections:
           default: ['Development'],
         }
       - { label: 'Excerpt', name: 'excerpt', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'date' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Featured Image', name: 'featuredImage', widget: 'image' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'authors'
@@ -42,7 +43,8 @@ collections:
     create: true
     slug: '{{slug}}'
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Name', name: 'title', widget: 'string' }
+      - { label: 'Blurb', name: 'blurb', widget: 'string' }
       - { label: 'Link', name: 'link', widget: 'string' }
-      - { label: 'Featured Image', name: 'featuredImage', widget: 'image' }
+      - { label: 'Author Image', name: 'image', widget: 'image' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
