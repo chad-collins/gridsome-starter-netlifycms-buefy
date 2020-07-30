@@ -19,7 +19,7 @@ collections:
           widget: 'relation',
           collection: 'authors',
           searchFields: ['id, title'],
-          valueField: 'title',
+          valueField: 'id',
           displayFields: ['title'],
         }
       - {
