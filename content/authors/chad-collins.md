@@ -1,9 +1,9 @@
 ---
 title: Chad Collins
-image: uploads/hero1.jpg
-link: 'github.com/chad-collins'
-twitterHandle: '@chadcodes'
-blurb: 'a little something'
+link: github.com/chad-collins
+image: uploads/chad-avatar.png
+twitterHandle: "@chadcodes"
+blurb: a little something
 ---
 
 # Bio
