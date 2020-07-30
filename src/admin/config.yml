@@ -2,20 +2,47 @@ backend:
   name: github
   repo: chad-collins/gridsome-bulma-netlifycms
 
-media_folder: "static/uploads"
-public_folder: "uploads"
+media_folder: 'static/uploads'
+public_folder: 'uploads'
 
 collections:
-  - name: "posts"
-    label: "Posts"
-    folder: "content/posts"
+  - name: 'posts'
+    label: 'Posts'
+    folder: 'content/posts'
     create: true
-    slug: "{{slug}}"
+    slug: '{{slug}}'
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Author", name: "author", widget: "select", options: ["Chad Collins", "Jane Doe"]}
-      - {label: "Tags", name: "tags", widget: "select", multiple: true, min: 1, max: 3, options: ["Development", "UX", "Design"], default: ["Development"]}
-      - {label: "Excerpt", name: "excerpt", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "date"}
-      - {label: "Featured Image", name: "featuredImage", widget: "image"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Author',
+          name: 'author',
+          widget: 'collection',
+          collection: 'authors',
+          searchFields: ['title', 'twitterHandle'],
+          valueField: 'title',
+          displayFields: ['twitterHandle', 'title'],
+        }
+      - {
+          label: 'Tags',
+          name: 'tags',
+          widget: 'select',
+          multiple: true,
+          min: 1,
+          max: 3,
+          options: ['Development', 'UX', 'Design'],
+          default: ['Development'],
+        }
+      - { label: 'Excerpt', name: 'excerpt', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'date' }
+      - { label: 'Featured Image', name: 'featuredImage', widget: 'image' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'authors'
+    label: 'Authors'
+    folder: 'content/authors'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Link', name: 'link', widget: 'string' }
+      - { label: 'Featured Image', name: 'featuredImage', widget: 'image' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }

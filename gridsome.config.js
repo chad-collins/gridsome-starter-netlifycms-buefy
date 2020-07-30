@@ -3,11 +3,9 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
-
 module.exports = {
   siteName: 'Gridsome',
   plugins: [
-
     // Load all Blog Posts from file system
     {
       use: '@gridsome/source-filesystem',
@@ -17,21 +15,29 @@ module.exports = {
         refs: {
           tags: {
             typeName: 'Tag',
-            route: '/tag/:title',
-            create: true
+            create: true,
           },
-          author:{
+          author: {
             typeName: 'Author',
-            route: '/author/:title',
-            create: true
-          }
+            create: true,
+          },
         },
-        remark: {
-         
+        remark: {},
+      },
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/authors/**/*.md',
+        typeName: 'Author',
+        refs: {
+          posts: {
+            typeName: 'Post',
+            route: '/blog/:year/:month/:day/:title',
+          },
         },
       },
     },
-    
     // Netlify CMS Plugin
 
     {
@@ -49,13 +55,22 @@ module.exports = {
     //     resources: 'src/assets/sass/_globals.scss',
     //   }
     // },
-
   ],
 
   templates: {
     Post: '/blog/:year/:month/:day/:title',
-    Tag: '/tag/:title',
-    Author: '/author/:title',
+    Tag: [
+      {
+        path: '/tag/:title',
+        componenent: '~/templates/Tag.vue',
+      },
+    ],
+    Author: [
+      {
+        path: '/author/:title',
+        componenent: '~/templates/Author.vue',
+      },
+    ],
   },
 
   transformers: {
@@ -68,4 +83,4 @@ module.exports = {
       ],
     },
   },
-}
+};

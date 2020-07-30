@@ -1,6 +1,6 @@
 <template>
-  <Layout >
-    <div>{{$page.post.title}} hi</div>
+  <Layout>
+    <div>{{ $page.post.title }} hi</div>
     <div v-html="$page.post.content"></div>
   </Layout>
 </template>

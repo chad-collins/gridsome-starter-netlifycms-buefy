@@ -1,6 +1,6 @@
 ---
 title: "Firsta Post"
-author: "Chad Collins"
+author: Chad Collins
 tags: ["Development"]
 excerpt: "Excerpt"
 date: 2021-04-20
