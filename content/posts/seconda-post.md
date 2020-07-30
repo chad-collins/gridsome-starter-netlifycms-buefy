@@ -1,7 +1,7 @@
 ---
-title: "Firsta Post"
+title: "Seconda Post"
 author: "Chad Collins"
-tags: ["quotes", "jeff goldblum", "actor"]
+tags: ["code", "jeff goldblum", "actor"]
 excerpt: "Excerpt"
 date: 2021-04-20
 featuredImage: uploads/hero1.jpg
