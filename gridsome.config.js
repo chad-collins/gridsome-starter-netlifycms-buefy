@@ -8,31 +8,31 @@ module.exports = {
   siteName: 'Gridsome',
   plugins: [
 
-    // Load Blog Posts
+    // Load all Blog Posts from file system
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: './content/blogposts/**/*.md',
-        typeName: 'BlogPost',
+        path: 'content/posts/**/*.md',
+        typeName: 'Post',
+        refs: {
+          tags: {
+            typeName: 'Tag',
+            route: '/tag/:title',
+            create: true
+          },
+          author:{
+            typeName: 'Author',
+            route: '/author/:title',
+            create: true
+          }
+        },
         remark: {
           plugins: ['@gridsome/remark-prismjs', { transformInlineCode: true }],
         },
       },
     },
-
-    // Load Event Posts
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        path: './content/eventposts/**/*.md',
-        typeName: 'EventPost',
-        remark: {
-        
-        },
-      },
-    },
     
-    // Netlify CMS
+    // Netlify CMS Plugin
 
     {
       use: `gridsome-plugin-netlify-cms`,
@@ -43,13 +43,12 @@ module.exports = {
 
   ],
 
-  // Templates with Paths
   templates: {
-    EventPost: '/event/:year/:month/:day/:title',
-    BlogPost: '/blog/:year/:month/:day/:title',
+    Post: '/blog/:year/:month/:day/:title',
+    Tag: '/tag/:title',
+    Author: '/author/:title',
   },
 
-  // Transformers
   transformers: {
     remark: {
       externalLinksTarget: '_blank',
