@@ -14,14 +14,13 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - {
-          label: 'Author',
+          label: 'Post Author',
           name: 'author',
           widget: 'relation',
           collection: 'authors',
-          options: [authors],
-          searchFields: ['title', 'email'],
+          searchFields: ['title'],
           valueField: 'title',
-          displayFields: ['email', 'title', 'blurb'],
+          displayFields: ['title'],
         }
       - {
           label: 'Tags',
