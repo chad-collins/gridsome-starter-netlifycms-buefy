@@ -1,45 +1,83 @@
 <template>
   <Layout>
-    <article v-for="edge in $page.blogs.edges" :key="edge.node.id">
-      <h2>
-        <g-link :to="edge.node.path">
-          {{ edge.node.title }}
-        </g-link>
-      </h2>
-      <small>
-        <g-link :to="edge.node.author.path">
-          {{ edge.node.author.id }}
-        </g-link>
-      </small>
-      <div>
-        <span v-for="(tag, index) in edge.node.tags" :key="tag.id">
-          <g-link :to="tag.path">
-            {{ tag.id }}
-          </g-link>
-          <span v-if="index + 1 < edge.node.tags.length">
-            ,
-          </span>
-        </span>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-two-thirds">
+            <article
+              v-for="post in $page.author.belongsTo.edges"
+              :key="post.node.id"
+              class="content post"
+            >
+              <h2 class="title is-2">
+                {{ post.node.title }}
+              </h2>
+              <p class="subtitle">{{ post.node.date }}</p>
+              <p>{{ post.node.excerpt }}</p>
+            </article>
+          </div>
+          <div class="column">
+            <div class="box">
+              <figure class="image is-rounded is-128x128">
+                <img class="is-rounded" :src="`../../${$page.author.image}`" />
+              </figure>
+              <div class="content">
+                <h2 class="title is-5">About {{ $page.author.title }}</h2>
+                <p>{{ $page.author.blurb }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <hr />
-    </article>
+    </section>
   </Layout>
 </template>
 
 <page-query>
-query BlogsByAuthor ($id: ID) {
-  blogs: allPost (filter: {author: {eq: $id}}) {
-    edges {
-      node {
-        title
-        path
-        author {
-          id
-          path
+ query($id: ID!) {
+    author(id: $id) {
+      title
+      path
+      image
+      blurb
+      content
+      belongsTo {
+        totalCount
+        pageInfo {
+          totalPages
+          currentPage
         }
-      
+        edges {
+          node {
+            ... on Post {
+              id
+              title
+              excerpt
+              featuredImage
+              path
+              content
+              date(format:"MMMM Do YYYY")
+              
+          
+              author {
+                id
+                title
+                image
+                path
+              }
+            }
+          }
+        }
       }
-    }
+    }  
   }
-}
 </page-query>
+
+<style lang="scss" scoped>
+@import '@/assets/scss/overrides.scss';
+
+.post {
+  padding-bottom: 1rem;
+  border-bottom: 12px solid $primary;
+}
+</style>

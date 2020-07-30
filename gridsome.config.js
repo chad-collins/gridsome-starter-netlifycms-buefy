@@ -19,12 +19,12 @@ module.exports = {
           },
           author: {
             typeName: 'Author',
-            create: true,
           },
         },
-        remark: {},
       },
     },
+
+    // Load Authors from file system
     {
       use: '@gridsome/source-filesystem',
       options: {
@@ -33,7 +33,6 @@ module.exports = {
         refs: {
           posts: {
             typeName: 'Post',
-            route: '/blog/:year/:month/:day/:title',
           },
         },
       },
@@ -58,7 +57,12 @@ module.exports = {
   ],
 
   templates: {
-    Post: '/blog/:year/:month/:day/:title',
+    Post: [
+      {
+        path: '/blog/:year/:month/:day/:title',
+        componenent: '~/templates/Post.vue',
+      },
+    ],
     Tag: [
       {
         path: '/tag/:title',
