@@ -1,8 +1,8 @@
 ---
 title: Chad Collins
 link: github.com/chad-collins
-image: uploads/chad-avatar.png
-twitterHandle: "@chadcodes"
+image: uploads/author-images/chad-avatar.png
+email: 'contact@chadcollins.net'
 blurb: a little something
 ---
 

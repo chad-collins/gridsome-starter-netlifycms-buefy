@@ -16,12 +16,12 @@ collections:
       - {
           label: 'Author',
           name: 'author',
-          widget: 'collection',
+          widget: 'relation',
           collection: 'authors',
           options: [authors],
-          searchFields: ['title', 'twitterHandle'],
+          searchFields: ['title', 'email'],
           valueField: 'title',
-          displayFields: ['twitterHandle', 'title'],
+          displayFields: ['email', 'title', 'blurb'],
         }
       - {
           label: 'Tags',
@@ -44,6 +44,7 @@ collections:
     slug: '{{slug}}'
     fields:
       - { label: 'Name', name: 'title', widget: 'string' }
+      - { label: 'Email', name: 'email', widget: 'string' }
       - { label: 'Blurb', name: 'blurb', widget: 'string' }
       - { label: 'Link', name: 'link', widget: 'string' }
       - { label: 'Author Image', name: 'image', widget: 'image' }

@@ -20,8 +20,6 @@
       </b-navbar-item>
     </template>
 
-    <template slot="end">
-      
-    </template>
+    <template slot="end"> </template>
   </b-navbar>
 </template>
