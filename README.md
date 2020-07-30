@@ -1,18 +1,41 @@
-# Default starter for Gridsome
+# Gridsome Starter with Netlify CMS & Buefy
 
-This is the project you get when you run `gridsome create new-project`.
+## See it Live
 
-### 1. Install Gridsome CLI tool if you don't have
+https://gridsome-starter.chadcollins.net
+
+## Features
+
+- Gridsome
+- Netlify CMS
+- Buefy (a Vue Javascript layer for Bulma)
+- SCSS
+- Markdown
+- Tags
+- Author Pages
+- Blog
+- About Page
+- GraphQL
+
+## Install
+
+### 1. Install the Gridsome CLI tool
 
 `npm install --global @gridsome/cli`
 
 ### 2. Create a Gridsome project
 
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
+1. `gridsome create my-blog`https://github.com/chad-collins/gridsome-bulma-netlifycms to install gridsome with this starter
+2. `cd my-blog` to open the folder
 3. `gridsome develop` to start a local dev server at `http://localhost:8080`
 4. Happy coding 🎉🙌
 
 # Enable Github Oauth
 
 # Enable netlify identity
+
+``
+
+``
+
+``
