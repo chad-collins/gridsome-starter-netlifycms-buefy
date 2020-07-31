@@ -106,6 +106,10 @@ export default {
 </script>
 
 <style>
+.card {
+  margin-bottom: 1.5rem;
+}
+
 .cards-grid {
   display: flex;
   flex-wrap: wrap;
