@@ -28,8 +28,9 @@ https://gridsome-starter.chadcollins.net
 1. `gridsome create my-blog`https://github.com/chad-collins/gridsome-bulma-netlifycms to install gridsome with this starter
 2. `cd my-blog` to open the folder
 3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
 
-# Enable Github Oauth
+4. Enable Github Oauth
 
-# Enable netlify identity
+5. Enable netlify identity
+
+6. Change Repo info at top of admin/config.yml to your own repo.
