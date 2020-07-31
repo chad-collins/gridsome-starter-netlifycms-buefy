@@ -33,9 +33,3 @@ https://gridsome-starter.chadcollins.net
 # Enable Github Oauth
 
 # Enable netlify identity
-
-``
-
-``
-
-``
